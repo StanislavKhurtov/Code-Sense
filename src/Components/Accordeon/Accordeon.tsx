@@ -6,8 +6,18 @@ type AccordeonPropsType = {
 }
 
 const Accordeon = (props: AccordeonPropsType) => {
-    debugger
 
+        return (
+            <div>
+                <AccordionTitle title={props.titleValue}/>
+                {!props.collapsed && <AccordeonBody/>}
+            </div>
+        )
+
+}
+
+
+/*const Accordeon2 = (props: AccordeonPropsType) => {
 
     if (!props.collapsed) {
         return (
@@ -16,27 +26,28 @@ const Accordeon = (props: AccordeonPropsType) => {
                 <AccordeonBody/>
             </div>
         )
+    }else {
+        return (
+            <div>
+                <AccordionTitle title={props.titleValue}/>
+            </div>
+        )
     }
-    return (
-        <div>
-            <AccordionTitle title={props.titleValue}/>
-        </div>
-    )
+}*/
 
-}
+
 type AccTitlePropsType = {
     title: string,
 }
 
 const AccordionTitle = (props: AccTitlePropsType) => {
     debugger
-    console.log("AccordionTitle rendering");
     return (
         <h3>{props.title}</h3>
     );
 }
 const AccordeonBody = () => {
-    console.log("AccordeonBody rendering");
+
     return (<ul>
         <li>1</li>
         <li>2</li>
