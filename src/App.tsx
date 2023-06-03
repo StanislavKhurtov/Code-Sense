@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Accordeon from "./Components/Accordeon/Accordeon";
 
-
 /*function hello() {
     debugger
     alert("Hello ")
@@ -10,7 +9,8 @@ import Accordeon from "./Components/Accordeon/Accordeon";
 hello();
 */
 
-//компонента всегда начинается с заглавной буквы
+// компонента всегда начинается с заглавной буквы
+
 const App = () => {
     //пишем логику
     console.log("App rendering");

@@ -7,20 +7,19 @@ type AccordeonPropsType = {
 
 const Accordeon = (props: AccordeonPropsType) => {
     debugger
-    console.log("Accordeon rendering");
 
 
-    if (props.collapsed === false) {
+    if (!props.collapsed) {
         return (
             <div>
-                <AccordionTitle title={props.titleValue} />
+                <AccordionTitle title={props.titleValue}/>
                 <AccordeonBody/>
             </div>
         )
     }
     return (
         <div>
-            <AccordionTitle title={props.titleValue} />
+            <AccordionTitle title={props.titleValue}/>
         </div>
     )
 
