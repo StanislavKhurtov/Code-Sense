@@ -16,26 +16,6 @@ const Accordeon = (props: AccordeonPropsType) => {
 
 }
 
-
-/*const Accordeon2 = (props: AccordeonPropsType) => {
-
-    if (!props.collapsed) {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-                <AccordeonBody/>
-            </div>
-        )
-    }else {
-        return (
-            <div>
-                <AccordionTitle title={props.titleValue}/>
-            </div>
-        )
-    }
-}*/
-
-
 type AccTitlePropsType = {
     title: string,
 }

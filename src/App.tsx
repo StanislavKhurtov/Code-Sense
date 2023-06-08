@@ -33,6 +33,8 @@ const App = () => {
             <Rating value={4}/>
             <Rating value={5}/>*/}
             <OnOff/>
+            <OnOff/>
+
 
         </div>
     );
