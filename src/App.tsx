@@ -40,8 +40,7 @@ const App = () => {
             */}
             <OnOff/>
             <OnOff/>
-            <UnControlAccordeon title={"Аккордеон"}/>
-            <UnControlAccordeon title={"Аккордеон2"}/>
+            <UnControlAccordeon title={"Accordeon Click"} />
             <UncontrolledRating/>
         </div>
     );

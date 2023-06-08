@@ -10,17 +10,9 @@ const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
     let [collapsed, setCollapsed] = useState(false);
     console.log(collapsed)
 
-    const styleBtn = {
-        transition: "1s",
-        backgroundColor: 'blue',
-        border: "1px solid #000",
-        padding: "5px 10px",
-    }
-
     return (
         <div>
-            <AccordionTitle title={props.title}/>
-            <button style={styleBtn} onClick={() => setCollapsed(!collapsed)}>Toggle</button>
+            <AccordionTitle title={props.title} onClick={() => setCollapsed(!collapsed)}/>
             {collapsed && <AccordeonOnBody/>}
         </div>
     )
@@ -29,19 +21,21 @@ const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
 
 type AccTitlePropsType = {
     title: string,
+    onClick:()=>void
 }
 
 const AccordionTitle = (props: AccTitlePropsType) => {
 
+
     return (
-        <h3>{props.title}</h3>
+        <h3 onClick={props.onClick}>{props.title}</h3>
     );
 }
 
 const AccordeonOnBody = () => {
 
     return (
-        <ul>
+        <ul >
             <li>1</li>
             <li>2</li>
             <li>3</li>

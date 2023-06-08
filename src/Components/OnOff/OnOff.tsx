@@ -17,22 +17,24 @@ export const OnOff = (props: OnOffType) => {
     }
 
     const onStyle = {
-        transition:"all 1s ease 1s",
+        transition: "all 1s ease 1s",
         border: "1px solid #000",
         padding: "5px 10px",
         backgroundColor: on ? "white" : "red",
-       display: on ? "none" : "block",
+        display: on ? "none" : "block",
+        borderRadius: "20px",
     };
     const offStyle = {
-        transition:"all 1s ease 1s",
+        transition: "all 1s ease 1s",
         border: "1px solid #000",
         padding: "5px 10px",
         backgroundColor: on ? "green" : "white",
-        display: on ? "block" :"none" ,
+        display: on ? "block" : "none",
         paddingLeft: on ? "50px" : "0px",
+        borderRadius: "20px",
     };
     const indicatorStyle = {
-        transition:"1s",
+        transition: "1s",
         width: "20px",
         height: "20px",
         borderRadius: "50%",
@@ -43,8 +45,14 @@ export const OnOff = (props: OnOffType) => {
 
     return (
         <div style={onOffBlock}>
-            <div style={onStyle} onClick={()=>{setOn(true)}}>Off</div>
-            <div style={offStyle} onClick={()=>{setOn(false)}}>On</div>
+            <div style={onStyle} onClick={() => {
+                setOn(true)
+            }}>Off
+            </div>
+            <div style={offStyle} onClick={() => {
+                setOn(false)
+            }}>On
+            </div>
             <div style={indicatorStyle}></div>
         </div>
     );
