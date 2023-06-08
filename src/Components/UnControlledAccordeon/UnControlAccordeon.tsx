@@ -11,13 +11,16 @@ const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
     console.log(collapsed)
 
     const styleBtn = {
-
+        transition: "1s",
+        backgroundColor: 'blue',
+        border: "1px solid #000",
+        padding: "5px 10px",
     }
 
     return (
         <div>
             <AccordionTitle title={props.title}/>
-            <button onClick={() => setCollapsed(!collapsed)}>Toggle</button>
+            <button style={styleBtn} onClick={() => setCollapsed(!collapsed)}>Toggle</button>
             {collapsed && <AccordeonOnBody/>}
         </div>
     )
