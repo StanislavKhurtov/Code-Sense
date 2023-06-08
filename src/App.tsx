@@ -23,26 +23,26 @@ const App = () => {
     return (
         //пишем JSX
         <div className={'App'}>
-            {/*<PageTitle title={'This is Element'}/>
+            {/*
+            <PageTitle title={'This is Element'}/>
             <PageTitle title={'This is My Friends'}/>
-            <Rating value={3}/>*/}
-            {/* <Accordeon titleValue={'Menu'} collapsed={true}/>
+            <Rating value={3}/>
+            */}
+            {/*
+            <Accordeon titleValue={'Menu'} collapsed={true}/>
             <Accordeon titleValue={'User'} collapsed={false}/>
             <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
             <Rating value={3}/>4а5ми6
             <Rating value={4}/>
-            <Rating value={5}/>*/}
+            <Rating value={5}/>
+            */}
             <OnOff/>
             <OnOff/>
-
-
             <UnControlAccordeon title={"Аккордеон"}/>
             <UnControlAccordeon title={"Аккордеон2"}/>
             <UncontrolledRating/>
-
-
         </div>
     );
 }
