@@ -3,6 +3,7 @@ import './App.css';
 import Accordeon from "./Components/Accordeon/Accordeon";
 import {Rating} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
+import UnControlAccordeon from "./Components/UnControlledAccordeon/UnControlAccordeon";
 
 /*function hello() {
     debugger
@@ -34,6 +35,10 @@ const App = () => {
             <Rating value={5}/>*/}
             <OnOff/>
             <OnOff/>
+
+
+            <UnControlAccordeon title={"Аккордеон"}/>
+            <UnControlAccordeon title={"Аккордеон2"}/>
 
 
         </div>
