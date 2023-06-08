@@ -4,6 +4,7 @@ import Accordeon from "./Components/Accordeon/Accordeon";
 import {Rating} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
 import UnControlAccordeon from "./Components/UnControlledAccordeon/UnControlAccordeon";
+import {UncontrolledRating} from "./Components/UnControlledRating/UncontrolledRating";
 
 /*function hello() {
     debugger
@@ -25,7 +26,7 @@ const App = () => {
             {/*<PageTitle title={'This is Element'}/>
             <PageTitle title={'This is My Friends'}/>
             <Rating value={3}/>*/}
-           {/* <Accordeon titleValue={'Menu'} collapsed={true}/>
+            {/* <Accordeon titleValue={'Menu'} collapsed={true}/>
             <Accordeon titleValue={'User'} collapsed={false}/>
             <Rating value={0}/>
             <Rating value={1}/>
@@ -39,6 +40,7 @@ const App = () => {
 
             <UnControlAccordeon title={"Аккордеон"}/>
             <UnControlAccordeon title={"Аккордеон2"}/>
+            <UncontrolledRating/>
 
 
         </div>
