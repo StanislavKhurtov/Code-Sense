@@ -1,33 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Accordeon from "./Components/Accordeon/Accordeon";
-import {Rating} from "./Components/Rating/Rating";
+import {Rating,RatingValueType} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
 import UnControlAccordeon from "./Components/UnControlledAccordeon/UnControlAccordeon";
 import {UncontrolledRating} from "./Components/UnControlledRating/UncontrolledRating";
 
-/*function hello() {
-    debugger
-    alert("Hello ")
-}
-hello();
-*/
 
-// компонента всегда начинается с заглавной буквы
 
 
 
 const App = () => {
-    //пишем логику
     console.log("App rendering");
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
+
     return (
-        //пишем JSX
         <div className={'App'}>
             {/*
             <PageTitle title={'This is Element'}/>
             <PageTitle title={'This is My Friends'}/>
-            <Rating value={3}/>
-            */}
+             */}
+
+            <Rating value={ratingValue} onclick={setRatingValue}/>
+
             {/*
             <Accordeon titleValue={'Menu'} collapsed={true}/>
             <Accordeon titleValue={'User'} collapsed={false}/>
@@ -40,7 +35,7 @@ const App = () => {
             */}
             <OnOff/>
             <OnOff/>
-            <UnControlAccordeon title={"Accordeon Click"} />
+            <UnControlAccordeon title={"Accordeon Click"}/>
             <UncontrolledRating/>
         </div>
     );

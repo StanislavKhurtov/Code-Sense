@@ -8,6 +8,7 @@ type UnControlAccordeonPropsType = {
 const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
 
     let [collapsed, setCollapsed] = useState(false);
+
     console.log(collapsed)
 
     return (
@@ -16,7 +17,6 @@ const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
             {collapsed && <AccordeonOnBody/>}
         </div>
     )
-
 }
 
 type AccTitlePropsType = {
@@ -25,15 +25,12 @@ type AccTitlePropsType = {
 }
 
 const AccordionTitle = (props: AccTitlePropsType) => {
-
-
     return (
         <h3 onClick={props.onClick}>{props.title}</h3>
     );
 }
 
 const AccordeonOnBody = () => {
-
     return (
         <ul >
             <li>1</li>
