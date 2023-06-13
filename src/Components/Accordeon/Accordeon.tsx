@@ -1,15 +1,16 @@
 import React from "react";
 
 type AccordeonPropsType = {
-    titleValue: string,
-    collapsed: boolean,
+    titleValue: string
+    collapsed: boolean
+    onChange: ()=> void
 }
 
-const Accordeon = (props: AccordeonPropsType) => {
+export const Accordeon = (props: AccordeonPropsType) => {
 
         return (
             <div>
-                <AccordionTitle title={props.titleValue}/>
+                <AccordionTitle title={props.titleValue} onChange={props.onChange}/>
                 {!props.collapsed && <AccordeonBody/>}
             </div>
         )
@@ -18,12 +19,13 @@ const Accordeon = (props: AccordeonPropsType) => {
 
 type AccTitlePropsType = {
     title: string,
+    onChange:()=> void
 }
 
 const AccordionTitle = (props: AccTitlePropsType) => {
     debugger
     return (
-        <h3>{props.title}</h3>
+        <h3 onClick={props.onChange}>{props.title}</h3>
     );
 }
 const AccordeonBody = () => {
@@ -35,7 +37,7 @@ const AccordeonBody = () => {
     </ul>);
 }
 
-export default Accordeon;
+
 
 
 

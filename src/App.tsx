@@ -4,8 +4,7 @@ import {Rating,RatingValueType} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
 import UnControlAccordeon from "./Components/UnControlledAccordeon/UnControlAccordeon";
 import {UncontrolledRating} from "./Components/UnControlledRating/UncontrolledRating";
-
-
+import {Accordeon} from "./Components/Accordeon/Accordeon";
 
 
 
@@ -13,6 +12,7 @@ const App = () => {
     console.log("App rendering");
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
+    let [accColl, setAccColl] = useState<boolean>(false);
 
     return (
         <div className={'App'}>
@@ -37,6 +37,11 @@ const App = () => {
             <OnOff/>
             <UnControlAccordeon title={"Accordeon Click"}/>
             <UncontrolledRating/>
+
+            <Accordeon titleValue={'Menu'}
+                       collapsed={accColl}
+                       onChange = {()=>{setAccColl(!accColl)}}
+            />
         </div>
     );
 }

@@ -9,17 +9,14 @@ export const UncontrolledRating = (props: RatingPropsType) => {
 
     let [starValue, setStarValue] = useState(0);
 
-    const selectStar = (value: 1 | 2 | 3 | 4 | 5) => {
-        setStarValue(value);
-    }
 
     return (
         <div>
-            <Star selected={starValue > 0} setValue={() => selectStar(1)}/>
-            <Star selected={starValue > 1} setValue={() => selectStar(2)}/>
-            <Star selected={starValue > 2} setValue={() => selectStar(3)}/>
-            <Star selected={starValue > 3} setValue={() => selectStar(4)}/>
-            <Star selected={starValue > 4} setValue={() => selectStar(5)}/>
+            <Star selected={starValue > 0} setValue={() => setStarValue(1)}/>
+            <Star selected={starValue > 1} setValue={() => setStarValue(2)}/>
+            <Star selected={starValue > 2} setValue={() => setStarValue(3)}/>
+            <Star selected={starValue > 3} setValue={() => setStarValue(4)}/>
+            <Star selected={starValue > 4} setValue={() => setStarValue(5)}/>
         </div>
     );
 }
