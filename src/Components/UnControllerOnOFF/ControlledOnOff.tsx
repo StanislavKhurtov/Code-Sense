@@ -1,15 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 
 type OnOffType = {
-    //highlight: boolean
+    on: boolean
+    onChange: (on: boolean) => void
 }
 
-export const OnOff = (props: OnOffType) => {
+export const ControlledOnOff = (props: OnOffType) => {
     console.log("OnOff rendering")
 
-    let [on, setOn] = useState(false)
-
-    console.log(`on: ${on}`)
+    console.log(`on: ${props.on}`)
 
     const onOffBlock = {
         display: "flex",
@@ -18,20 +17,18 @@ export const OnOff = (props: OnOffType) => {
     }
 
     const onStyle = {
-        transition: "all 1s ease 1s",
+        transition: "0.5s",
         border: "1px solid #000",
         padding: "5px 10px",
-        backgroundColor: on ? "white" : "red",
-        display: on ? "none" : "block",
+        backgroundColor: props.on ? "white" : "red",
+
         borderRadius: "20px",
     };
     const offStyle = {
-        transition: "all 1s ease 1s",
+        transition: "0.5s",
         border: "1px solid #000",
         padding: "5px 10px",
-        backgroundColor: on ? "green" : "white",
-        display: on ? "block" : "none",
-        paddingLeft: on ? "50px" : "0px",
+        backgroundColor: props.on ? "green" : "white",
         borderRadius: "20px",
     };
     const indicatorStyle = {
@@ -40,14 +37,16 @@ export const OnOff = (props: OnOffType) => {
         height: "20px",
         borderRadius: "50%",
         border: "1px solid #000",
-        backgroundColor: on ? "green" : "white",
+        backgroundColor: props.on ? "green" : "white",
     };
 
 
     return (
         <div style={onOffBlock}>
-            <div style={onStyle} onClick={() => {setOn(true)}}>Off</div>
-            <div style={offStyle} onClick={() => {setOn(false)}}>On</div>
+            <div style={offStyle} onClick={() => props.onChange(true)}>On
+            </div>
+            <div style={onStyle} onClick={() => props.onChange(false)}>Off
+            </div>
             <div style={indicatorStyle}></div>
         </div>
     );

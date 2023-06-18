@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 type RatingPropsType = {
-    //value: number,  /*value: 0|1|2|3|4|5 */
+    value: number, /*value: 0|1|2|3|4|5 */
 }
 
 export const UncontrolledRating = (props: RatingPropsType) => {
