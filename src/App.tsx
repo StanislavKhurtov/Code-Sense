@@ -4,14 +4,15 @@ import {RatingValueType} from "./Components/Rating/Rating";
 import {OnOff} from "./Components/OnOff/OnOff";
 import {Accordeon} from "./Components/Accordeon/Accordeon";
 import {ControlledOnOff} from "./Components/UnControllerOnOFF/ControlledOnOff";
+import {UnControlAccordeon} from "./Components/UnControlledAccordeon/UnControlAccordeon";
 
 
 const App = () => {
-    console.log("App rendering");
 
     let [ratingValue, setRatingValue] = useState<RatingValueType>(0);
     let [accColl, setAccColl] = useState<boolean>(true);
     let [switchOn,setSwitchOn] = useState<boolean>(false)
+    let [onOff,setOnOff] = useState<boolean>(true)
 
 
 
@@ -36,13 +37,13 @@ const App = () => {
             <Rating value={5}/>
             */}
 
-            <OnOff/>
-            <OnOff/>
+            <OnOff on={onOff} onChange={setOnOff}/>
+            <OnOff on={onOff} onChange={setOnOff}/>
 
-            {/*
+
             <UnControlAccordeon title={"Accordeon Click"}/>
-            <UncontrolledRating/>
-            */}
+            {/*<UncontrolledRating/>*/}
+
 
             <Accordeon titleValue={'Menu'}
                        collapsed={accColl}

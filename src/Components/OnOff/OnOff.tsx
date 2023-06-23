@@ -1,16 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 
 type OnOffType = {
-   on: boolean
-    onChange: (on: boolean)=>void
+    on: boolean
+    onChange: (on: boolean) => void
 }
 
 export const OnOff = (props: OnOffType) => {
     console.log("OnOff rendering")
 
-    let [on, setOn] = useState(false)
+    //let [on, setOn] = useState(false)
 
-    console.log(`on: ${on}`)
+
 
     const onOffBlock = {
         display: "flex",
@@ -20,20 +20,20 @@ export const OnOff = (props: OnOffType) => {
     }
 
     const onStyle = {
-        transition: "all 1s ease 1s",
+        transition: "1s",
         border: "1px solid #000",
         padding: "5px 10px",
-        backgroundColor: on ? "white" : "red",
-        display: on ? "none" : "block",
+        backgroundColor: props.on ? "white" : "red",
+        display: props.on ? "none" : "block",
         borderRadius: "20px",
     };
     const offStyle = {
-        transition: "all 1s ease 1s",
+        transition: "1s",
         border: "1px solid #000",
         padding: "5px 10px",
-        backgroundColor: on ? "green" : "white",
-        display: on ? "block" : "none",
-        paddingLeft: on ? "50px" : "0px",
+        backgroundColor: props.on ? "green" : "white",
+        display: props.on ? "block" : "none",
+        paddingLeft: props.on ? "50px" : "0px",
         borderRadius: "20px",
     };
     const indicatorStyle = {
@@ -42,14 +42,20 @@ export const OnOff = (props: OnOffType) => {
         height: "20px",
         borderRadius: "50%",
         border: "1px solid #000",
-        backgroundColor: on ? "green" : "white",
+        backgroundColor: props.on ? "green" : "white",
     };
 
 
     return (
         <div style={onOffBlock}>
-            <div style={onStyle} onClick={() => {props.onChange(true)}}>Off</div>
-            <div style={offStyle} onClick={() => {props.onChange(false)}}>On</div>
+            <div style={onStyle} onClick={() => {
+                props.onChange(true)
+            }}>Off
+            </div>
+            <div style={offStyle} onClick={() => {
+                props.onChange(false)
+            }}>On
+            </div>
             <div style={indicatorStyle}></div>
         </div>
     );

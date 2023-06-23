@@ -1,22 +1,23 @@
 import React, {useState} from "react";
 
+export type RatingValueType = 0 | 1 | 2 | 3 | 4 | 5;
+
 type RatingPropsType = {
-    value: number, /*value: 0|1|2|3|4|5 */
+    defaultValue?: RatingValueType
 }
 
 export const UncontrolledRating = (props: RatingPropsType) => {
-    console.log("Rating rendering");
 
-    let [starValue, setStarValue] = useState(0);
+    let [value, setValue] = useState<RatingValueType>(props.defaultValue ? props.defaultValue : 0);
 
 
     return (
         <div>
-            <Star selected={starValue > 0} setValue={() => setStarValue(1)}/>
-            <Star selected={starValue > 1} setValue={() => setStarValue(2)}/>
-            <Star selected={starValue > 2} setValue={() => setStarValue(3)}/>
-            <Star selected={starValue > 3} setValue={() => setStarValue(4)}/>
-            <Star selected={starValue > 4} setValue={() => setStarValue(5)}/>
+            <Star selected={value > 0} setValue={() => setValue(1)}/>
+            <Star selected={value > 1} setValue={() => setValue(2)}/>
+            <Star selected={value > 2} setValue={() => setValue(3)}/>
+            <Star selected={value > 3} setValue={() => setValue(4)}/>
+            <Star selected={value > 4} setValue={() => setValue(5)}/>
         </div>
     );
 }

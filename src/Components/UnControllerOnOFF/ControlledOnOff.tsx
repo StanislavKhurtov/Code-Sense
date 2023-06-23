@@ -6,9 +6,6 @@ type OnOffType = {
 }
 
 export const ControlledOnOff = (props: OnOffType) => {
-    console.log("OnOff rendering")
-
-    console.log(`on: ${props.on}`)
 
     const onOffBlock = {
         display: "flex",

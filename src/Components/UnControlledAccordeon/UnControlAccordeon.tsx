@@ -5,7 +5,7 @@ type UnControlAccordeonPropsType = {
 }
 
 
-const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
+export const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
 
     let [collapsed, setCollapsed] = useState(false);
 
@@ -39,7 +39,7 @@ const AccordeonOnBody = () => {
         </ul>);
 };
 
-export default UnControlAccordeon;
+
 
 
 
