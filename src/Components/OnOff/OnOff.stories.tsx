@@ -6,18 +6,13 @@ import {action} from "@storybook/addon-actions";
 export default {
     title: 'OnOff',
     component: OnOff,
-
-};
-const callback = "on or off"
-
-function action(callback: string) {
-    
 }
 
-export const OnMode = () => <OnOff on={true} onChange={action(callback)} />;
-export const OffMode = () => <OnOff on={false} onChange={action(callback)} />;
+
+export const OnMode = () => <OnOff on={true} onChange={action('on or off')} />;
+export const OffMode = () => <OnOff on={false} onChange={action('on or off')} />;
 
 export const ModeChanging = () => {
     const [value, setValue] = useState<boolean>(true)
-    return <OnOff on={value} onclick={setValue} />;
+    return <OnOff on={value} onChange={setValue} />;
 }
