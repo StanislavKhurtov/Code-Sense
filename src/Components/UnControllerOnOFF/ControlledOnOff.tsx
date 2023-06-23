@@ -41,11 +41,18 @@ export const ControlledOnOff = (props: OnOffType) => {
     };
 
 
+    const onClicked = () => {
+        props.onChange(true)
+    };
+    const offClick = () => {
+        props.onChange(false)
+    };
+
     return (
         <div style={onOffBlock}>
-            <div style={offStyle} onClick={() => props.onChange(true)}>On
+            <div style={offStyle} onClick={onClicked}>On
             </div>
-            <div style={onStyle} onClick={() => props.onChange(false)}>Off
+            <div style={onStyle} onClick={offClick}>Off
             </div>
             <div style={indicatorStyle}></div>
         </div>
