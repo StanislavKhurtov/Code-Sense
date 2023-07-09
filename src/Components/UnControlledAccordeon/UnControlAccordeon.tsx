@@ -1,21 +1,8 @@
 import React, {useReducer} from "react";
+import {reducer} from "./Reducer";
 
 type UnControlAccordeonPropsType = {
     title: string,
-}
-
-type ActionType = {
-    type: string
-}
-
-const reducer = (state: boolean, action: ActionType) => {
-    switch (action.type) {
-        case "Toggle-collapsed":
-            return !state;
-        default:
-            throw new Error("Bad action type")
-    }
-    return state;
 }
 
 export const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
@@ -23,7 +10,6 @@ export const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
     // let [collapsed, setCollapsed] = useState(false);
     let [collapsed, dispatch] = useReducer(reducer, false);
 
-    console.log(collapsed)
 
     return (
         <div>
