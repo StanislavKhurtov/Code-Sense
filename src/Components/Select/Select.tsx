@@ -27,7 +27,7 @@ export const Select = (props: SelectPropsType) => {
         <div className={s.select}>
             <span className={s.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</span>
             {active && <div className={s.menu}>
-                {props.items.map(el => <div
+                {props.items.map(el => <div className={s.item}
                     key={el.value}
                     onClick={()=> {
                         onItemClick(el.value)

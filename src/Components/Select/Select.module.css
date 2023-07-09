@@ -3,13 +3,26 @@
     display: inline-block;
     min-height: 20px;
     min-width: 40px;
-
-
+    padding: 5px 10px;
+    color: darkblue;
+    font-size: 20px;
+    min-width: 70px;
 }
 
 .menu {
-    border: 1px solid black;
     padding: 10px;
     position: absolute;
 }
 
+.item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.item {
+    font-size: 20px;
+    transition: 0.4s;
+}
+
+.item:hover {
+    background-color: lightblue;
+}
