@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import {UnControlAccordeon} from "./UnControlAccordeon";
 
@@ -13,6 +13,5 @@ export default {
 
 
 export const ModeChanging = () => {
-
-    return <UnControlAccordeon title={"GER"} />;
+    return <UnControlAccordeon title={"Menu"} />;
 }

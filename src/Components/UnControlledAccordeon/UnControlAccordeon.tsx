@@ -1,19 +1,31 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 
 type UnControlAccordeonPropsType = {
     title: string,
 }
 
+type ActionType={
+    type:string
+}
+
+const reducer = (state: boolean, action:ActionType) => {
+if(action.type==="Toggle-collapsed"){
+    return !state;
+}
+    return state;
+}
 
 export const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
 
-    let [collapsed, setCollapsed] = useState(false);
+   // let [collapsed, setCollapsed] = useState(false);
+    let [collapsed, dispatch] = useReducer(reducer,false);
 
     console.log(collapsed)
 
     return (
         <div>
-            <AccordionTitle title={props.title} onClick={() => setCollapsed(!collapsed)}/>
+            {/*<AccordionTitle title={props.title} onClick={() => setCollapsed(!collapsed)}/>*/}
+            <AccordionTitle title={props.title} onClick={() => dispatch({type:"Toggle-collapsed"})}/>
             {collapsed && <AccordeonOnBody/>}
         </div>
     )
@@ -21,7 +33,7 @@ export const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
 
 type AccTitlePropsType = {
     title: string,
-    onClick:()=>void
+    onClick: () => void
 }
 
 const AccordionTitle = (props: AccTitlePropsType) => {
@@ -32,10 +44,10 @@ const AccordionTitle = (props: AccTitlePropsType) => {
 
 const AccordeonOnBody = () => {
     return (
-        <ul >
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+        <ul>
+            <li>first</li>
+            <li>second</li>
+            <li>three</li>
         </ul>);
 };
 
