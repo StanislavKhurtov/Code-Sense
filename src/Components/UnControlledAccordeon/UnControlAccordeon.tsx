@@ -13,10 +13,9 @@ const reducer = (state: boolean, action: ActionType) => {
         case "Toggle-collapsed":
             return !state;
         default:
-            return state;
-            //throw new
+            throw new Error("Bad action type")
     }
-
+    return state;
 }
 
 export const UnControlAccordeon = (props: UnControlAccordeonPropsType) => {
