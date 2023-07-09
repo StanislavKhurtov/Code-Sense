@@ -19,7 +19,6 @@ test('reducer should change value to oppossite value', () => {
 
 
 test('reducer should be false', () => {
-
     //data
     const state: StateType = {
         collapsed: true
