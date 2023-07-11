@@ -35,7 +35,7 @@ test('reducer should be false', () => {
 })
 
 
-test('reducer shut throw errror because action type in incorrect', () => {
+test('reducer shut throw error because action type in incorrect', () => {
     //data
     const state: StateType = {
         collapsed: true

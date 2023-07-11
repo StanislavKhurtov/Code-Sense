@@ -14,7 +14,8 @@ export const reducer = (state: StateType, action: ActionType): StateType => {
             return {
                 ...state,
                 collapsed: !state.collapsed
-            };
+            } as const;
+
         default:
             throw new Error("Bad action type")
     }
