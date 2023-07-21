@@ -21,7 +21,6 @@ export const CollapsedMode = () => <Accordeon
 export const UnCollapsedMode = () => <Accordeon
     titleValue={"Users"}
     collapsed={false}
-
     onChange={action('accordeon mode change fired')}
     items={[{title: "Stas", value: 1}, {
         title: "Egor",
