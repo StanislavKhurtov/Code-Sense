@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 type ItemType = {
     title: string;
@@ -13,21 +13,16 @@ type AccordeonPropsType = {
     onClick: (value: any) => void;
 };
 
-export const Accordeon = (props: AccordeonPropsType) => {
-
-    const accordeonBodyJSX = useMemo(() => {
-        return !props.collapsed && (
-            <AccordeonBody items={props.items} onClick={props.onClick} />
-        );
-    }, [props.collapsed, props.items, props.onClick]);
-
+export const Accordeon = React.memo((props: AccordeonPropsType) => {
     return (
         <div>
             <AccordionTitle title={props.titleValue} onChange={props.onChange} />
-            {accordeonBodyJSX}
+            {!props.collapsed && (
+                <AccordeonBody items={props.items} onClick={props.onClick} />
+            )}
         </div>
     );
-};
+});
 
 type AccTitlePropsType = {
     title: string;
@@ -35,6 +30,7 @@ type AccTitlePropsType = {
 };
 
 const AccordionTitle = (props: AccTitlePropsType) => {
+    debugger;
     return <h3 onClick={(e) => props.onChange()}>{props.title}</h3>;
 };
 
@@ -47,15 +43,12 @@ const AccordeonBody = (props: AccordeonBodyPropsType) => {
     return (
         <ul>
             {props.items.map((el, index) => (
-                <li
-                    onClick={() => {
-                        props.onClick(el.value);
-                    }}
-                    key={index}
-                >
+                <li onClick={() => {
+                    props.onClick(el.value);
+                }} key={index}>
                     {el.title}
                 </li>
             ))}
         </ul>
-    );
-};
+    )
+}
