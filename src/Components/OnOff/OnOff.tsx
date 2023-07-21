@@ -1,23 +1,19 @@
 import React from "react";
 
 type OnOffType = {
-    on: boolean
-    onChange: (on: boolean) => void
-}
+    on: boolean;
+    onChange: (on: boolean) => void;
+};
 
-export const OnOff = (props: OnOffType) => {
-    console.log("OnOff rendering")
-
-    //let [on, setOn] = useState(false)
-
-
+export const OnOff = React.memo((props: OnOffType) => {
+    console.log("OnOff rendering");
 
     const onOffBlock = {
         display: "flex",
         gap: "20px",
         alignItems: "center",
         fontWeight: "900",
-    }
+    };
 
     const onStyle = {
         transition: "1s",
@@ -45,18 +41,25 @@ export const OnOff = (props: OnOffType) => {
         backgroundColor: props.on ? "green" : "white",
     };
 
-
     return (
         <div style={onOffBlock}>
-            <div style={onStyle} onClick={() => {
-                props.onChange(true)
-            }}>Off
+            <div
+                style={onStyle}
+                onClick={() => {
+                    props.onChange(true);
+                }}
+            >
+                Off
             </div>
-            <div style={offStyle} onClick={() => {
-                props.onChange(false)
-            }}>On
+            <div
+                style={offStyle}
+                onClick={() => {
+                    props.onChange(false);
+                }}
+            >
+                On
             </div>
             <div style={indicatorStyle}></div>
         </div>
     );
-}
+});
