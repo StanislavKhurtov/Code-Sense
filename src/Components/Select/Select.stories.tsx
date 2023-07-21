@@ -1,6 +1,6 @@
 import React, {useMemo, useState} from "react";
 import {Select} from "./Select";
-import {HelpsToReactMemo} from "../../stories/UseMemo.stories";
+import {HelpsToReactMemo} from "../../stories/UseMemoUseCallback.stories";
 
 
 export default {
