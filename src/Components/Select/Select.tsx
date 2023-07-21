@@ -25,6 +25,7 @@ export const Select = (props: SelectPropsType) => {
     }, [props.value])
 
     const toggleItems = () => setActive(!active);
+
     const onItemClick = (value: any) => {
         props.onChange(value)
         toggleItems()
@@ -55,7 +56,7 @@ setActive(false)
 
     return (
         <div className={s.select} onKeyUp={onKeyUp} tabIndex={0}>
-            <span className={s.main} onClick={toggleItems}>{selectedItem && selectedItem.title}</span>
+            <span className={s.main} onClick={toggleItems} tabIndex={0}>{selectedItem && selectedItem.title}</span>
             {active && <div className={s.menu}>
                 {props.items.map(el => <div className={s.item + " " + (hoveredItem === el ? s.selected : "")}
                                             key={el.value}
