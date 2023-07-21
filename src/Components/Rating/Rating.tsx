@@ -26,12 +26,12 @@ type StarPropsType = {
     onclick: () => void
 }
 
-const Star = (props: StarPropsType) => {
+const Star = React.memo((props: StarPropsType) => {
     console.log("Star rendering");
 
-    return <span onClick={props.onclick}>
-        {props.selected ? <b>star </b> : "star "}
+    return (
+        <span onClick={props.onclick}>
+      {props.selected ? <b>star </b> : "star "}
     </span>
-
-
-}
+    );
+});
