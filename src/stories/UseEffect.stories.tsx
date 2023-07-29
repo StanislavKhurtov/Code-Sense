@@ -34,9 +34,12 @@ export const SimpleExample = () => {
     </div>
 };
 
+let hours = 12
+
+
 export const SetTimeOutExample = () => {
 
-    const [fake, setFake] = useState(1)
+    const [fake, setFake] = useState()
     const [counter, setCounter] = useState(1)
 
     console.log('SetTimeOutExample')
@@ -44,7 +47,7 @@ export const SetTimeOutExample = () => {
     useEffect(() => {
         setTimeout(() => {
             console.log('tick: ' + counter)
-            setCounter(state=>state +1)
+            setCounter(state => state + 1)
         }, 1000);
     }, [])
 
@@ -58,3 +61,40 @@ export const SetTimeOutExample = () => {
 };
 
 
+
+export const SetTime = () => {
+    const [hour, setHour] = useState(2);
+    const [minute, setMinute] = useState(0);
+    const [second, setSecond] = useState(58);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            console.log("sec")
+            setSecond((second) => {
+                const newSecond = second + 1;
+                if (newSecond >= 60) {
+                    setMinute((minute) => {
+                        const newMinute = minute + 1;
+                        if (newMinute >= 60) {
+                            setHour((hour) => (hour === 12 ? 1 : hour + 1));
+                        }
+                        return newMinute % 60;
+                    });
+                }
+                return newSecond % 60;
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [])
+
+    useEffect(()=> {
+        document.title = `${hour}:${minute}:${second}`
+    },[second])
+
+    return (
+        <div>
+            time - {hour}:{minute < 10 ? '0' + minute : minute}:{second < 10 ? '0' + second : second}
+        </div>
+    );
+}
