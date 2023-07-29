@@ -4,7 +4,6 @@ export default {
     title: 'useEffect demo'
 }
 
-
 export const SimpleExample = () => {
 
     const [fake, setFake] = useState<number>(1)
@@ -20,12 +19,12 @@ export const SimpleExample = () => {
     useEffect(() => {
         console.log('useEffect only first render')
         document.title = counter.toString()
-    },[])
+    }, [])
 
     useEffect(() => {
         console.log('useEffect first render and every counter change')
         document.title = counter.toString()
-    },[counter])
+    }, [counter])
 
     return <div>
         Hello, {counter}
@@ -33,6 +32,29 @@ export const SimpleExample = () => {
         Hello, {fake}
         <button onClick={() => setFake(fake + 1)}>+</button>
     </div>
-}
+};
+
+export const SetTimeOutExample = () => {
+
+    const [fake, setFake] = useState(1)
+    const [counter, setCounter] = useState(1)
+
+    console.log('SetTimeOutExample')
+
+    useEffect(() => {
+        setTimeout(() => {
+            console.log('tick: ' + counter)
+            setCounter(state=>state +1)
+        }, 1000);
+    }, [])
+
+
+    return <div>
+        counter: {counter}
+        {/*<button onClick={() => setCounter(counter + 1)}>+</button>*/}
+        fake: {fake}
+        {/*<button onClick={() => setFake(fake + 1)}>fake+</button>*/}
+    </div>
+};
 
 
