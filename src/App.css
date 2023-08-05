@@ -6,8 +6,60 @@
     margin: 0 auto;
     max-width: 1000px;
     width: 100%;
+    align-items: center;
+}
+
+.clockWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
 }
 
 
+.clockDigital {
+    font-size: 20px;
+    font-weight: 700;
+}
 
 
+.clockFace {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+.hourHand,
+.minuteHand,
+.secondHand {
+    position: absolute;
+    background-color: #000;
+    transform-origin: bottom center;
+}
+
+.hourHand {
+    width: 6px;
+    height: 60px;
+    top: 40px;
+    left: 97px;
+    border-radius: 6px 6px 0 0;
+}
+
+.minuteHand {
+    width: 4px;
+    height: 80px;
+    top: 20px;
+    left: 98px;
+    border-radius: 4px 4px 0 0;
+}
+
+.secondHand {
+    width: 2px;
+    height: 90px;
+    top: 10px;
+    left: 99px;
+    border-radius: 2px 2px 0 0;
+    background-color: red; /* Цвет для секундной стрелки */
+}
