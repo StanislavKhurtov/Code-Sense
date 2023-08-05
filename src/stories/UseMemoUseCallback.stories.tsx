@@ -3,8 +3,6 @@ import React, {ChangeEvent, useCallback, useMemo, useState} from "react";
 export default {
     title: 'useMemo',
 }
-
-
 export const DifficultCountingExample = () => {
     const [a, setA] = useState<number>(5);
     const [b, setB] = useState<number>(5);
