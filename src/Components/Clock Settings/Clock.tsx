@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
-import {Button} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 
 export const ClockSettings = () => {
     const [hour, setHour] = useState(0);
@@ -35,18 +35,25 @@ export const ClockSettings = () => {
 
     const onChangeHoursHandler = (e: ChangeEvent<HTMLInputElement>) => {
         let hourClock = parseInt(e.currentTarget.value);
-        if (!isNaN(hourClock) && hourClock >= 0 && hourClock <= 23) {
+        if (!isNaN(hourClock)) {
+            hourClock = hourClock % 24; // Ограничиваем значение от 0 до 23
+            if (hourClock < 0) {
+                hourClock = 24 + hourClock; // Обрабатываем отрицательные значения
+            }
             setHour(hourClock);
         }
     };
 
     const onChangeMinutesHandler = (e: ChangeEvent<HTMLInputElement>) => {
         let minuteClock = parseInt(e.currentTarget.value);
-        if (!isNaN(minuteClock) && minuteClock >= 0 && minuteClock <= 59) {
+        if (!isNaN(minuteClock)) {
+            minuteClock = minuteClock % 60; // Ограничиваем значение от 0 до 59
+            if (minuteClock < 0) {
+                minuteClock = 60 + minuteClock; // Обрабатываем отрицательные значения
+            }
             setMinute(minuteClock);
         }
     };
-
     const toggleClock = () => {
         setShowDigitalClock((prevShowDigitalClock) => !prevShowDigitalClock);
     };
@@ -54,19 +61,19 @@ export const ClockSettings = () => {
     return (
         <div className='clockWrapper'>
             <div className="clockSettings">
-                <input
-                    type="number"
+                <TextField
                     value={hour}
                     onChange={onChangeHoursHandler}
-                    min="0"
-                    max="23"
+                    id="standard-number"
+                    label="Hours"
+                    type='number'
                 />
-                <input
+                <TextField
                     type="number"
                     value={minute}
                     onChange={onChangeMinutesHandler}
-                    min="0"
-                    max="59"
+                    label="Minutes"
+
                 />
                 <Button variant="contained" onClick={toggleClock}>
                     {showDigitalClock ? "Analog" : "Digital"}
