@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {RatingValueType} from "./Components/Rating/Rating";
 import {ClockSettings} from "./Components/Clock Settings/ClockSettings";
+import {Clock} from "./Components/Clock/Clock";
 
 
 const App = () => {
@@ -52,9 +53,9 @@ const App = () => {
                 on={switchOn}
                 onChange={setSwitchOn}
             />*/}
-            {/*<Clock />*/}
+            <Clock />
 
-            <ClockSettings/>
+            {/*<ClockSettings/>*/}
 
         </div>
     );
