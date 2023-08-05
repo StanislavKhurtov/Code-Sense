@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import './App.css';
 import {RatingValueType} from "./Components/Rating/Rating";
-import {Select} from "./Components/Select/Select";
 import {UnControlAccordeon} from "./Components/UnControlledAccordeon/UnControlAccordeon";
+import {ClockSettings} from "./Components/Clock Settings/Clock";
 
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
             <Rating value={5}/>
             */}
 
-        {/*      <OnOff on={onOff} onChange={setOnOff}/>
+            {/*      <OnOff on={onOff} onChange={setOnOff}/>
             <OnOff on={onOff} onChange={setOnOff}/>*/}
 
 
@@ -53,6 +53,10 @@ const App = () => {
                 on={switchOn}
                 onChange={setSwitchOn}
             />*/}
+            {/*<Clock />*/}
+
+            <ClockSettings/>
+
         </div>
     );
 }
