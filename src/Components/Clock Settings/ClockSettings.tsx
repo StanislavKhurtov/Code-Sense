@@ -1,11 +1,14 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
 import {Button, TextField} from "@mui/material";
+import clock from "./ClockSettings.module.css";
+
+
 
 export const ClockSettings = () => {
-    const [hour, setHour] = useState(0);
-    const [minute, setMinute] = useState(0);
-    const [second, setSecond] = useState(0);
-    const [showDigitalClock, setShowDigitalClock] = useState(true);
+    const [hour, setHour] = useState<number>(0);
+    const [minute, setMinute] = useState<number>(0);
+    const [second, setSecond] = useState<number>(0);
+    const [showDigitalClock, setShowDigitalClock] = useState<boolean>(true);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -59,20 +62,24 @@ export const ClockSettings = () => {
     };
 
     return (
-        <div className='clockWrapper'>
-            <div className="clockSettings">
+        <div className={clock.clockWrapper}>
+            <div className={clock.clockSettings}>
                 <TextField
+                    className={clock.textFieldClock}
                     value={hour}
                     onChange={onChangeHoursHandler}
                     id="standard-number"
                     label="Hours"
                     type='number'
+                    size="small"
                 />
                 <TextField
+                    className={clock.textFieldClock}
                     type="number"
                     value={minute}
                     onChange={onChangeMinutesHandler}
                     label="Minutes"
+                    size="small"
 
                 />
                 <Button variant="contained" onClick={toggleClock}>
@@ -80,22 +87,22 @@ export const ClockSettings = () => {
                 </Button>
             </div>
             {showDigitalClock ? (
-                <div className={"clockDigital"}>
+                <div className={clock.clockDigital}>
                     {getDigitsString(hour)}:{getDigitsString(minute)}:{getDigitsString(second)}
                 </div>
             ) : (
-                <div className="clockAnalog">
-                    <div className="clockFace">
+                <div className={clock.clockAnalog}>
+                    <div className={clock.clockFace}>
                         <div
-                            className="hourHand"
+                            className={clock.hourHand}
                             style={{ transform: `rotate(${hour * 30}deg)` }}
                         />
                         <div
-                            className="minuteHand"
+                            className={clock.minuteHand}
                             style={{ transform: `rotate(${minute * 6}deg)` }}
                         />
                         <div
-                            className="secondHand"
+                            className={clock.secondHand}
                             style={{ transform: `rotate(${second * 6}deg)` }}
                         />
                     </div>
