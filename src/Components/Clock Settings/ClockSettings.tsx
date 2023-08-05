@@ -82,7 +82,10 @@ export const ClockSettings = () => {
                     size="small"
 
                 />
-                <Button variant="contained" onClick={toggleClock}>
+                <Button
+                    variant="contained"
+
+                    onClick={toggleClock}>
                     {showDigitalClock ? "Analog" : "Digital"}
                 </Button>
             </div>

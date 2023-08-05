@@ -11,7 +11,11 @@
     justify-content: center;
     gap: 20px;
 }
-
+.textFieldClock {
+    max-width: 100px;
+    width: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 
 .clockDigital {
     font-size: 50px;
@@ -19,13 +23,14 @@
     letter-spacing: 0.2rem;
 }
 
-
 .clockFace {
+    overflow: hidden;
     position: relative;
     width: 200px;
     height: 200px;
-    border: 2px solid gray;
+    border: 2px solid rgba(99, 99, 99, 0.2);
     border-radius: 50%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .hourHand,
@@ -62,7 +67,5 @@
 }
 
 
-.textFieldClock {
-    max-width: 100px;
-}
+
 
