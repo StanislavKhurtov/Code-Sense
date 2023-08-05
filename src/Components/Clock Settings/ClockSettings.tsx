@@ -1,13 +1,12 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, {ChangeEvent, useEffect, useState} from "react";
 import {Button, TextField} from "@mui/material";
 import clock from "./ClockSettings.module.css";
-
 
 
 export const ClockSettings = () => {
     const [hour, setHour] = useState<number>(0);
     const [minute, setMinute] = useState<number>(0);
-    const [second, setSecond] = useState<number>(0);
+    const [second, setSecond] = useState<number>(30);
     const [showDigitalClock, setShowDigitalClock] = useState<boolean>(true);
 
     useEffect(() => {
@@ -96,18 +95,10 @@ export const ClockSettings = () => {
             ) : (
                 <div className={clock.clockAnalog}>
                     <div className={clock.clockFace}>
-                        <div
-                            className={clock.hourHand}
-                            style={{ transform: `rotate(${hour * 30}deg)` }}
-                        />
-                        <div
-                            className={clock.minuteHand}
-                            style={{ transform: `rotate(${minute * 6}deg)` }}
-                        />
-                        <div
-                            className={clock.secondHand}
-                            style={{ transform: `rotate(${second * 6}deg)` }}
-                        />
+                        <span className={clock.hourHand} style={{transform: `rotate(${hour * 30}deg)`}}></span>
+                        <span className={clock.minuteHand} style={{transform: `rotate(${minute * 6}deg)`}}></span>
+                        <span className={clock.secondHand} style={{transform: `rotate(${second * 6}deg)`}}></span>
+                        <span className={clock.dot}></span>
                     </div>
                 </div>
             )}
