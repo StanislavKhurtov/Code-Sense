@@ -53,9 +53,9 @@ const App = () => {
                 on={switchOn}
                 onChange={setSwitchOn}
             />*/}
-            <Clock />
+            {/*<Clock />*/}
 
-            {/*<ClockSettings/>*/}
+            <ClockSettings/>
 
         </div>
     );
