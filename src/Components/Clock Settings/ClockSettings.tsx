@@ -6,7 +6,7 @@ import clock from "./ClockSettings.module.css";
 export const ClockSettings = () => {
     const [hour, setHour] = useState<number>(0);
     const [minute, setMinute] = useState<number>(0);
-    const [second, setSecond] = useState<number>(30);
+    const [second, setSecond] = useState<number>(0);
     const [showDigitalClock, setShowDigitalClock] = useState<boolean>(true);
 
     useEffect(() => {
