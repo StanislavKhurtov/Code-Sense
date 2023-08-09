@@ -1,37 +1,37 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import clock from "./Clock.module.css";
-import {Button} from "@mui/material";
+import { Button } from "@mui/material";
 
 export const Clock = () => {
     const [date, setDate] = useState(new Date());
+    const [fullDate, setFullDate] = useState(new Date());
     const [showDigitalClock, setShowDigitalClock] = useState<boolean>(true);
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setDate(new Date())
+            const currentDate = new Date();
+            setDate(currentDate);
+            setFullDate(currentDate);
         }, 1000);
 
         return () => {
-            clearInterval(intervalId) // Надо очищать setInterval, так функция асинхронная и она в фоне продолжает работать, если мы даже перешли на другую страничку. Для того чтобы ее остановить и не засорять память!!!, это важно, применяем clearInterval(id setInterval)
-        }
-    }, [])
+            clearInterval(intervalId);
+        };
+    }, []);
 
-    const getDigitsString = (num: number) => num < 10 ? `0${num}` : num
+    const getDigitsString = (num: number) => (num < 10 ? `0${num}` : `${num % 60}`);
 
     useEffect(() => {
-        document.title = `${getDigitsString(date.getHours())}:${getDigitsString(date.getMinutes())}:${getDigitsString(date.getSeconds())}`
-    }, [])
+        document.title = `${getDigitsString(date.getHours())}:${getDigitsString(date.getMinutes())}:${getDigitsString(date.getSeconds())}`;
+    }, [date]);
 
     const toggleClock = () => {
         setShowDigitalClock((prevShowDigitalClock) => !prevShowDigitalClock);
     };
 
-
     return (
         <div className={clock.clockWrapper}>
-            <Button
-                variant="contained"
-                onClick={toggleClock}>
+            <Button variant="contained" onClick={toggleClock}>
                 {showDigitalClock ? "Analog" : "Digital"}
             </Button>
             {showDigitalClock ? (
@@ -41,14 +41,16 @@ export const Clock = () => {
             ) : (
                 <div className={clock.clockAnalog}>
                     <div className={clock.clockFace}>
-                        <span className={clock.hourHand} style={{transform: `rotate(${date.getHours() * 30}deg)`}}></span>
-                        <span className={clock.minuteHand} style={{transform: `rotate(${date.getMinutes() * 6}deg)`}}></span>
-                        <span className={clock.secondHand} style={{transform: `rotate(${date.getSeconds() * 6}deg)`}}></span>
+                        <span className={clock.hourHand} style={{ transform: `rotate(${date.getHours() * 30}deg)` }}></span>
+                        <span className={clock.minuteHand} style={{ transform: `rotate(${date.getMinutes() * 6}deg)` }}></span>
+                        <span className={clock.secondHand} style={{ transform: `rotate(${date.getSeconds() * 6}deg)` }}></span>
                         <span className={clock.dot}></span>
                     </div>
                 </div>
             )}
+            <div className={clock.data}>
+                {getDigitsString(fullDate.getDate())}/{getDigitsString(fullDate.getMonth() + 1)}/{fullDate.getFullYear()}
+            </div>
         </div>
     );
-}
-
+};
