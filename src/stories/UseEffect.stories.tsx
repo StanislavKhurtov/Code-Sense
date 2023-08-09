@@ -58,4 +58,30 @@ export const SetTimeOutExample = () => {
 };
 
 
+export const ResetEffectExample = () => {
+
+    const [counter, setCounter] = useState(1)
+
+    console.log('Component rendered' + counter)
+
+    useEffect(() => {
+            console.log('Effect occurred:' + ' ' + counter)
+
+
+        return () => {
+            console.log('Reset Effect' + counter)
+        }
+    }, [counter])
+
+const increase =()=> {setCounter(counter + 1)}
+
+    return <div>
+        Hello, counter: {counter} <button onClick={increase}>+</button>
+
+
+
+    </div>
+};
+
+
 
