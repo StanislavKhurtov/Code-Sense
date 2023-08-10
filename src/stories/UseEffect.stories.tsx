@@ -65,21 +65,20 @@ export const ResetEffectExample = () => {
     console.log('Component rendered' + counter)
 
     useEffect(() => {
-            console.log('Effect occurred:' + ' ' + counter)
-
+        console.log('Effect occurred:' + ' ' + counter)
 
         return () => {
             console.log('Reset Effect' + counter)
         }
     }, [counter])
 
-const increase =()=> {setCounter(counter + 1)}
+    const increase = () => {
+        setCounter(counter + 1)
+    }
 
     return <div>
-        Hello, counter: {counter} <button onClick={increase}>+</button>
-
-
-
+        Hello, counter: {counter}
+        <button onClick={increase}>+</button>
     </div>
 };
 
